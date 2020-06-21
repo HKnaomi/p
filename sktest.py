@@ -30,7 +30,7 @@ while True:
 		che(key)
 	except (stripe.error.AuthenticationError,stripe.error.InvalidRequestError):
 		print("Dead: {}".format(key))
-	except:
+	except (stripe.error.CardError):
 		print("Oke: {}".format(key))
 		hasil(key)
      
