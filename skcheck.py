@@ -23,7 +23,7 @@ def skcheck(update, context):
     try:
         key = " ".join(context.args)
         che(key)
-        pesan = "<b>Live</b>:\n<u>{}</u>".format(key)
+        pesan = "<b>Live</b>:\n<code>{}</code>".format(key)
         update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
         hasil(key)
     except stripe.error.AuthenticationError as AE:
@@ -36,6 +36,6 @@ def skcheck(update, context):
         pesan = "<b>Dead</b>:\n{}\n\n<u>{}</u>".format(key, CD._message)
         update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
     except:
-        pesan = "<b>Live?</b>:\n<u>{}</u>".format(key)
+        pesan = "<b>Live?</b>:\n<code>{}</code>".format(key)
         update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
         hasil(key)
