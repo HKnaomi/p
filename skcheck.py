@@ -29,7 +29,10 @@ def skcheck(update, context):
     except stripe.error.InvalidRequestError as IRE:
         pesan = "<b>Dead</b>:\n{}\n\n<u>{}</u>".format(key, IRE.error.message)
         update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
-    except (stripe.error.CardError):
-        pesan = "<b>Live</b>:\n<code>{}</code>".format(key)
+    except stripe.error.CardError as CD:
+        pesan = "<b>Dead</b>:\n{}\n\n<u>{}</u>".format(key, CD._message)
+        update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
+    except:
+        pesan = "<b>Live</b>:\n<u>{}</u>".format(key)
         update.message.reply_text(pesan, parse_mode=ParseMode.HTML)
         hasil(key)
