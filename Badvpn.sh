@@ -17,10 +17,11 @@ fi" > /bin/badvpn
 chmod +x /bin/badvpn
 if [ -f /usr/bin/badvpn-udpgw ]; then
 echo -e "Badvpn installed"
+fi
 exit
 else
 #
-fi
+
 echo "Installing Badvpn"
 echo "download do Badvpn"
 wget -O /usr/bin/badvpn-udpgw https://github.com/CLOUDSERVERS/badvpn/blob/master/badvpn-udpgw?raw=true -o /dev/null
